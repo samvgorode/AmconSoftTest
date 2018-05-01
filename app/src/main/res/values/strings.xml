@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AmconSoftTest</string>
+    <string name="facebook_app_id">248262859078258</string>
+    <string name="fb_login_protocol_scheme">fb248262859078258</string>
+    <string name="fb_login_cancelled">Facebook login cancelled</string>
+    <string name="fb_login_error">Facebook login error</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="login_via_facebook">Login with Facebook</string>
+</resources>
