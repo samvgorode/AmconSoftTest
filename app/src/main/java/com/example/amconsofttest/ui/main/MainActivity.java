@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -41,19 +42,42 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setupHeaderView();
+        setupActionBar();
+        setupDrawerView();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        replaceFragment(R.id.drawer_layout, ClientListFragment.newInstance(), "0", "");
+        replaceFragment(R.id.fragment_holder, ClientListFragment.newInstance(), "0");
+    }
+
+    private void setupActionBar(){
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else drawer.openDrawer(GravityCompat.START);  // OPEN DRAWER
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK)) {
-            drawer.closeDrawer(GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -62,7 +86,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void showToast(int id) {}
 
-    private void setupHeaderView(){
+    private void setupDrawerView(){
         String id = presenter.getCurrentUserId();
         String name = presenter.getCurrentUserName();
         String email = presenter.getCurrentUserEmail();
@@ -75,5 +99,6 @@ public class MainActivity extends BaseActivity {
     void click(){
         presenter.logoutUser();
         startActivity(LoginActivity.getNewIntent(this));
+        finish();
     }
 }

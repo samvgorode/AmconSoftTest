@@ -9,10 +9,10 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_weight="1"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +20,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/user_id"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
 
             <View
                 android:layout_width="match_parent"
@@ -29,170 +34,214 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="1"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/user_name"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="Ivan petrov"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/username"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="gik"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/email"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="vanya@sobaka.com"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/address"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="Ukraine, Dnipro"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/phone"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="991"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/site"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_website"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="gooogle.com.ua"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/company"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/user_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp"
                 tools:text="google"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorPrimary"/>
-
-
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
@@ -200,7 +249,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="360dp"
         android:layout_gravity="bottom"
         android:layout_weight="1"/>
 </LinearLayout>

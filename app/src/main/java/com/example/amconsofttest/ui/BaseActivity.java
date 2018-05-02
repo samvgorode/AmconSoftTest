@@ -18,12 +18,20 @@ public class BaseActivity extends MvpAppCompatActivity implements BaseView {
 
     public void replaceFragment(@IdRes int containerViewId,
                                 @NonNull Fragment fragment,
-                                String fragmentTag,
-                                @Nullable String backStackStateName) {
+                                String fragmentTag) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(containerViewId, fragment, fragmentTag)
-                .addToBackStack(backStackStateName)
+                .addToBackStack("")
                 .commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            finish();
+        }
     }
 }

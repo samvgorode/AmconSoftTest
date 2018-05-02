@@ -32,10 +32,7 @@ public class LoginActivity extends BaseActivity {
     private CallbackManager callbackManager;
 
     public static Intent getNewIntent(Activity activity) {
-        Intent intent = new Intent(activity, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        return intent;
+        return new Intent(activity, LoginActivity.class);
     }
 
     @Override

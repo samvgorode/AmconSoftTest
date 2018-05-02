@@ -5,15 +5,18 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="end">
+    tools:openDrawer="start">
+
+    <FrameLayout
+        android:id="@+id/fragment_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:fitsSystemWindows="true">
+        android:layout_gravity="start">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,20 +33,20 @@
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Ivan petrov"
                 android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                tools:text="Ivan petrov"/>
 
 
             <TextView
                 android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Ivan@sobaka.com"
                 android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                tools:text="Ivan@sobaka.com"/>
 
             <View
                 android:layout_width="match_parent"
@@ -57,8 +60,8 @@
                 android:layout_gravity="bottom"
                 android:layout_margin="16dp"
                 android:text="@string/action_logout"
-                android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp"/>
         </LinearLayout>
     </android.support.design.widget.NavigationView>
 

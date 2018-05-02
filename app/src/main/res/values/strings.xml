@@ -12,4 +12,12 @@
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
     <string name="login_via_facebook">Login with Facebook</string>
+    <string name="user_id">user id</string>
+    <string name="user_name">user name</string>
+    <string name="username">user username</string>
+    <string name="email">user email</string>
+    <string name="address">user address</string>
+    <string name="phone">user phone</string>
+    <string name="site">user site</string>
+    <string name="company">user company</string>
 </resources>

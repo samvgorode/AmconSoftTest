@@ -39,8 +39,7 @@ class SimpleViewHolder extends RecyclerView.ViewHolder {
         }
         itemView.setOnClickListener(v -> {
             ((MainActivity) itemView.getContext())
-                    .replaceFragment(R.id.drawer_layout, OneClientFragment.newInstance(id),
-                            "1", "");
+                    .replaceFragment(R.id.fragment_holder, OneClientFragment.newInstance(id), "1");
         });
     }
 }
