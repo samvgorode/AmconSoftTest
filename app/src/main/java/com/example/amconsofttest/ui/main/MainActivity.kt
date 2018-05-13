@@ -4,32 +4,22 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
 import android.view.MenuItem
-import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.amconsofttest.R
 import com.example.amconsofttest.ui.BaseActivity
 import com.example.amconsofttest.ui.login.LoginActivity
 import com.example.amconsofttest.ui.main.fragments.list.ClientListFragment
-import com.facebook.login.widget.ProfilePictureView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-    @BindView(R.id.drawer_layout) lateinit var drawer: DrawerLayout
-    @BindView(R.id.profile_picture) lateinit var pictureView: ProfilePictureView
-    @BindView(R.id.user_name) lateinit var userName: TextView
-    @BindView(R.id.user_email) lateinit var userEmail: TextView
-
-    @InjectPresenter internal lateinit var presenter: MainPresenter
+    @InjectPresenter
+    internal lateinit var presenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ButterKnife.bind(this)
         setupActionBar()
         setupDrawerView()
     }
@@ -47,16 +37,16 @@ class MainActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                drawer?.run {
+                drawer_layout?.run {
                     if (this.isDrawerOpen(GravityCompat.START)) {
                         this.closeDrawer(GravityCompat.START)
-                    } else{
+                    } else {
                         this.openDrawer(GravityCompat.START)
                     }
                 }
 
 
-                      // OPEN DRAWER
+                // OPEN DRAWER
                 return true
             }
         }
@@ -64,10 +54,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        drawer?.run {
+        drawer_layout?.run {
             if (this.isDrawerOpen(GravityCompat.START)) {
                 this.closeDrawer(GravityCompat.START)
-            } else{
+            } else {
                 super.onBackPressed()
             }
         }
@@ -79,13 +69,13 @@ class MainActivity : BaseActivity() {
         val id = presenter.currentUserId
         val name = presenter.currentUserName
         val email = presenter.currentUserEmail
-        pictureView.profileId = id
-        userName.text = name
-        userEmail.text = email
+        profile_picture.profileId = id
+        user_name.text = name
+        user_email.text = email
+        logout_button.setOnClickListener { logoutClicked() }
     }
 
-    @OnClick(R.id.logout_button)
-    internal fun click() {
+    fun logoutClicked() {
         presenter.logoutUser()
         startActivity(LoginActivity.getNewIntent(this))
         finish()

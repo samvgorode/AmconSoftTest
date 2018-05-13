@@ -6,9 +6,6 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.amconsofttest.R
 import com.example.amconsofttest.io.realm_models.ClientRealm
@@ -19,27 +16,9 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_one_client.*
 
 class OneClientFragment : BaseFragment(), OnMapReadyCallback {
-
-    @BindView(R.id.user_id)
-    lateinit var userId: TextView
-    @BindView(R.id.user_name)
-    lateinit var userName: TextView
-    @BindView(R.id.user_username)
-    lateinit var userUserName: TextView
-    @BindView(R.id.user_email)
-    lateinit var userEmail: TextView
-    @BindView(R.id.user_address)
-    lateinit var userAddress: TextView
-    @BindView(R.id.user_phone)
-    lateinit var userPhone: TextView
-    @BindView(R.id.user_website)
-    lateinit var userWebsite: TextView
-    @BindView(R.id.user_company)
-    lateinit var userCompany: TextView
-    @BindView(R.id.map_view)
-    lateinit var mapView: com.google.android.gms.maps.MapView
 
     private val clientId: Int = 0
     internal var map: GoogleMap? = null
@@ -53,8 +32,7 @@ class OneClientFragment : BaseFragment(), OnMapReadyCallback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_one_client, container, false)
-        ButterKnife.bind(this, view)
-        mapView.onCreate(savedInstanceState)
+        map_view.onCreate(savedInstanceState)
         return view
     }
 
@@ -66,23 +44,23 @@ class OneClientFragment : BaseFragment(), OnMapReadyCallback {
     @SuppressLint("SetTextI18n")
     override fun setupOneClientRealm(clientRealm: ClientRealm) {
         if (clientRealm.isValid) {
-            userId.text = Integer.toString(clientRealm.getId()!!)
+            user_id.text = Integer.toString(clientRealm.getId()!!)
             clientName = clientRealm.getName()
-            userName.text = clientName
-            userUserName.text = clientRealm.getUsername()
-            userEmail.text = clientRealm.getEmail()
+            user_name.text = clientName
+            user_username.text = clientRealm.getUsername()
+            user_email.text = clientRealm.getEmail()
             val addressRealm = clientRealm.getAddress()
-            userAddress.text = TextUtils.concat(addressRealm!!.getZipcode(), " ",
+            user_address.text = TextUtils.concat(addressRealm!!.getZipcode(), " ",
                     addressRealm.getCity(), " ", addressRealm.getStreet(), " ", addressRealm.getSuite())
-            userPhone.text = clientRealm.getPhone()
-            userWebsite.text = clientRealm.getWebsite()
+            user_phone.text = clientRealm.getPhone()
+            user_website.text = clientRealm.getWebsite()
             val companyRealm = clientRealm.getCompany()
-            userCompany.text = TextUtils.concat(companyRealm!!.getName(), " ",
+            user_company.text = TextUtils.concat(companyRealm!!.getName(), " ",
                     companyRealm.getCatchPhrase(), " ", companyRealm.getBs())
 
             lat = addressRealm.getGeo()!!.getLat()
             lon = addressRealm.getGeo()!!.getLng()
-            mapView.getMapAsync(this)
+            map_view.getMapAsync(this)
         }
     }
 
@@ -97,18 +75,18 @@ class OneClientFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onResume() {
-        mapView.onResume()
+        map_view.onResume()
         super.onResume()
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        mapView.onLowMemory()
+        map_view.onLowMemory()
     }
 
     override fun onDestroyView() {
         map!!.clear()
-        mapView.onDestroy()
+        map_view.onDestroy()
         super.onDestroyView()
     }
 
