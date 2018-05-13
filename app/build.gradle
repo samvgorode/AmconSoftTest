@@ -1,9 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'realm-android'
 
 repositories {
     maven { url "https://jitpack.io" }
     google()
+    mavenCentral()
 }
 
 android {
@@ -35,7 +39,23 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains' , module:'annotations'
+    }
+
+    task cleanAnnotationsJar(type:Jar) {
+        configurations.cleanedAnnotations.each { f ->
+            from zipTree(f)
+        }
+        archiveName = "annotations-cleaned.jar"
+        exclude 'org/jetbrains/annotations/NotNull.class'
+        exclude 'org/jetbrains/annotations/Nullable.class'
+    }
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -50,11 +70,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    implementation 'com.github.bumptech.glide:glide:4.6.1'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'com.arello-mobile:moxy:1.5.3'
     implementation 'com.arello-mobile:moxy-android:1.5.3'
     implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
+    kapt 'com.arello-mobile:moxy-compiler:1.5.3'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
@@ -62,9 +82,11 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.google.android.gms:play-services-maps:15.0.0'
     implementation 'com.google.firebase:firebase-core:15.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    kapt  'com.jakewharton:butterknife-compiler:8.8.1'
+    kapt  'com.arello-mobile:moxy-compiler:1.5.3'
 
     apply plugin: 'com.google.gms.google-services'
 
 }
+
